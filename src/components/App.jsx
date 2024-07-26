@@ -32,19 +32,24 @@ function App() {
   const [dice, setDice] = useState(null);
   const [stateGame, setStateGame] = useState("En progreso");
 
-//Crear función rollDice.
-//1.La función debe generar un número aleatorio entre 1 y 4, simulando el lanzamiento de un dado de cuatro caras.
-//2. Según el número obtenido:
-//Si es 4, Grogu debe avanzar en el tablero. Actualiza su posición.
-//Si es 1, 2 o 3, una mercancía correspondiente se eliminará de su lista.
 
 function handleClickRollDice() {
-console.log("estamos dentro del handleClick ");
   const result = Math.floor(Math.random() * 4) + 1;
-    setDice(result);
-    if (result === 4) {
-      setPosition (0 + 1)
-    }
+
+  setDice(result);
+
+  if (result === 4) {
+    setPosition(position + 1);
+  }
+  if( result === 3){
+    setCookies(cookies.slice(0,-1));
+  }
+  if( result === 2){
+    setEggs(eggs.slice(0,-1));
+  }
+  if( result === 1){
+    setFrogs(frogs.slice(0,-1));
+  }
 }
 
   return (
@@ -54,7 +59,7 @@ console.log("estamos dentro del handleClick ");
     <Board />
         <section>
           <button className="dice" onClick={handleClickRollDice}>Lanzar Dado</button>
-          <div className="game-status">En curso</div>
+          <div className="game-status">{stateGame}</div>
         </section>
 
         <section className="goods-container">
