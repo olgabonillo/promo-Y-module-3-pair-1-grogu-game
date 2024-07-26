@@ -11,13 +11,13 @@ import { useState } from "react";
 
 // 3. Según el número que salga en el dado grogru se moverá o no
 
-// 4. Si grogru no avanza el usuario puede guaradarse una mercancia 
+// 4. Si grogu no avanza el usuario puede guaradarse una mercancia 
 // (3 galletas, 3 huevos y 3 ranas)
 // El usuario puede ver las mercancias restantes.
 
-// 5.Si el usuario a descargado todas las mercancias  gana el juego y sino pierde.
+// 5.Si el usuario ha descargado todas las mercancias  gana el juego y sino pierde.
 
-// 6. En el juego nos aseguramos que se muestre la posición  de grogru en las casillas, 
+// 6. En el juego nos aseguramos que se muestre la posición  de grogu en las casillas, 
 // la mercancia restante  y el resultado del dado.
 
 // 7. Se reiniciar el juego nuevamente, pulsando el botón reiniciar juego.
