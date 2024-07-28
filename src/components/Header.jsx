@@ -1,6 +1,5 @@
 const Header = () => {
-
-<header>
+return <header>
   <h1>¡Cuidado con Grogu!</h1>
 </header>;
 }

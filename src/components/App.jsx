@@ -40,6 +40,7 @@ function handleClickRollDice() {
 
   if (result === 4) {
     setPosition(position + 1);
+    
   }
   if( result === 3){
     setCookies(cookies.slice(0,-1));
