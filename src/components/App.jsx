@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./Header";
 import Board from "./Board";
 import Grogu from "./Grogu";
+import Dice from "./Dice";
 
 // 1. Grogu en la casilla número 1
 // hay 3 galletas, tres huevos y 3 ranas
@@ -32,40 +33,36 @@ function App() {
   const [dice, setDice] = useState(null);
   const [stateGame, setStateGame] = useState("En progreso");
 
+  function handleClickRollDice() {
+    const result = Math.floor(Math.random() * 4) + 1;
+console.log(result);
+    setDice(result);
 
-function handleClickRollDice() {
-  const result = Math.floor(Math.random() * 4) + 1;
-
-  setDice(result);
-
-  if (result === 4) {
-    setPosition(position + 1);
-    setStateGame("Grogu ha avanzado una casilla");
-    
+    if (result === 4) {
+      setPosition(position + 1);
+      setStateGame("Grogu ha avanzado una casilla");
+    }
+    if (result === 3) {
+      setCookies(cookies.slice(0, -1));
+      setStateGame("Ha descargado una galleta");
+    }
+    if (result === 2) {
+      setEggs(eggs.slice(0, -1));
+      setStateGame("Ha descargado un huevo");
+    }
+    if (result === 1) {
+      setFrogs(frogs.slice(0, -1));
+      setStateGame("Ha descargado una rana");
+    }
   }
-  if( result === 3){
-    setCookies(cookies.slice(0,-1));
-    setStateGame("Ha descargado una galleta");
-
-  }
-  if( result === 2){
-    setEggs(eggs.slice(0,-1));
-    setStateGame("Ha descargado un huevo");
-
-  }
-  if( result === 1){
-    setFrogs(frogs.slice(0,-1));
-    setStateGame("Ha descargado una rana");
-  }
-}
 
   return (
     <>
-    <Header />
+      <Header />
       <main className="page">
-    <Board />
+        <Board />
         <section>
-          <button className="dice" onClick={handleClickRollDice}>Lanzar Dado</button>
+          <Dice onClickDice ={handleClickRollDice} />
           <div className="game-status">{stateGame}</div>
         </section>
 
