@@ -40,16 +40,22 @@ function handleClickRollDice() {
 
   if (result === 4) {
     setPosition(position + 1);
+    setStateGame("Grogu ha avanzado una casilla");
     
   }
   if( result === 3){
     setCookies(cookies.slice(0,-1));
+    setStateGame("Ha descargado una galleta");
+
   }
   if( result === 2){
     setEggs(eggs.slice(0,-1));
+    setStateGame("Ha descargado un huevo");
+
   }
   if( result === 1){
     setFrogs(frogs.slice(0,-1));
+    setStateGame("Ha descargado una rana");
   }
 }
 
