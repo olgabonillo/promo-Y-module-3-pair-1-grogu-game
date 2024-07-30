@@ -26,7 +26,7 @@ import Dice from "./Dice";
 // 7. Se reiniciar el juego nuevamente, pulsando el botón reiniciar juego.
 
 function App() {
-  const [position, setPosition] = useState(0);
+  const [positionGrogu, setPositionGrogu] = useState(0);
   const [cookies, setCookies] = useState(["🍪", "🍪", "🍪"]);
   const [eggs, setEggs] = useState(["🥚", "🥚", "🥚"]);
   const [frogs, setFrogs] = useState(["🐸", "🐸", "🐸"]);
@@ -35,11 +35,10 @@ function App() {
 
   function handleClickRollDice() {
     const result = Math.floor(Math.random() * 4) + 1;
-console.log(result);
     setDice(result);
 
     if (result === 4) {
-      setPosition(position + 1);
+      setPositionGrogu(positionGrogu + 1);
       setStateGame("Grogu ha avanzado una casilla");
     }
     if (result === 3) {
@@ -60,7 +59,7 @@ console.log(result);
     <>
       <Header />
       <main className="page">
-        <Board />
+        <Board position={positionGrogu}/>
         <section>
           <Dice onClickDice ={handleClickRollDice} />
           <div className="game-status">{stateGame}</div>
