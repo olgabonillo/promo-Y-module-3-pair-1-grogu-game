@@ -4,6 +4,7 @@ import Header from "./Header";
 import Board from "./Board";
 import Grogu from "./Grogu";
 import Dice from "./Dice";
+import Form from "./Form";
 
 // 1. Grogu en la casilla número 1
 // hay 3 galletas, tres huevos y 3 ranas
@@ -32,7 +33,12 @@ function App() {
   const [frogs, setFrogs] = useState(["🐸", "🐸", "🐸"]);
   const [dice, setDice] = useState(null);
   const [stateGame, setStateGame] = useState("En progreso");
+  const [name, setName] = useState("");
 
+  const changeName = (inputValue) => {
+    setName(inputValue);
+    console.log("el nombre es: ", inputValue);
+  };
   function handleClickRollDice() {
     const result = Math.floor(Math.random() * 4) + 1;
     setDice(result);
@@ -58,13 +64,13 @@ function App() {
   return (
     <>
       <Header />
+      <Form name={name} onChangeName={changeName} />
       <main className="page">
         <Board position={positionGrogu} />
         <section>
           <Dice onClickDice={handleClickRollDice} />
           <div className="game-status">{stateGame}</div>
         </section>
-
         <section className="goods-container">
           <div className="goods-item">🍪</div>
           <div className="goods-item">🍪</div>
