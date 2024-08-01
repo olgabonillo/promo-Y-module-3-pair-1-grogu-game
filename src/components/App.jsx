@@ -59,9 +59,9 @@ function App() {
     <>
       <Header />
       <main className="page">
-        <Board position={positionGrogu}/>
+        <Board position={positionGrogu} />
         <section>
-          <Dice onClickDice ={handleClickRollDice} />
+          <Dice onClickDice={handleClickRollDice} />
           <div className="game-status">{stateGame}</div>
         </section>
 

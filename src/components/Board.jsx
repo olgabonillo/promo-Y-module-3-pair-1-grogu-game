@@ -1,18 +1,19 @@
 import Grogu from "./Grogu";
 
-const Board = (position) => {
-   
+const Board = ({ position }) => {
   const gameBoxes = new Array(7).fill(null);
+  console.log("position", position);
   const renderGameBoxes = () => {
     return gameBoxes.map((gameBox, index) => {
-      return <div key={index} className="cell"></div>
-    })
-  }
-  return (
-    <section className="board">
-      {renderGameBoxes({position})}
-    </section>
-  );
+      console.log("index", index);
+      return (
+        <div key={index} className="cell">
+          {position === index ? <Grogu /> : null}
+        </div>
+      );
+    });
+  };
+  return <section className="board">{renderGameBoxes()}</section>;
 };
 
 export default Board;
