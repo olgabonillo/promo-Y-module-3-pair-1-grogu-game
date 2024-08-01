@@ -37,8 +37,8 @@ function App() {
 
   const changeName = (inputValue) => {
     setName(inputValue);
-    console.log("el nombre es: ", inputValue);
   };
+
   function handleClickRollDice() {
     const result = Math.floor(Math.random() * 4) + 1;
     setDice(result);
@@ -63,7 +63,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header name={name}/>
       <Form name={name} onChangeName={changeName} />
       <main className="page">
         <Board position={positionGrogu} />
