@@ -1,5 +1,5 @@
 import "../scss/App.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Header";
 import Board from "./Board";
 import Grogu from "./Grogu";
@@ -35,6 +35,19 @@ function App() {
   const [stateGame, setStateGame] = useState("En progreso");
   const [name, setName] = useState("");
 
+  useEffect(() => {
+    if (positionGrogu === 7) {
+      setStateGame("Grogu se ha comido todo el cargamento, has perdido ");
+    } else if (
+      cookies.length === 0 &&
+      eggs.length === 0 &&
+      frogs.length === 0
+    ) {
+      setStateGame("Has ganado, has conseguido ganar la misión");
+    }
+    [positionGrogu, cookies, eggs, frogs];
+  });
+
   const changeName = (inputValue) => {
     setName(inputValue);
   };
@@ -63,7 +76,7 @@ function App() {
 
   return (
     <>
-      <Header name={name}/>
+      <Header name={name} />
       <Form name={name} onChangeName={changeName} />
       <main className="page">
         <Board position={positionGrogu} />
