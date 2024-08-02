@@ -45,8 +45,7 @@ function App() {
     ) {
       setStateGame("Has ganado, has conseguido ganar la misión");
     }
-    [positionGrogu, cookies, eggs, frogs];
-  });
+  }, [positionGrogu, cookies, eggs, frogs]);
 
   const changeName = (inputValue) => {
     setName(inputValue);
