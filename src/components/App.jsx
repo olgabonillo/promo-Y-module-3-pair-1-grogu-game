@@ -79,39 +79,45 @@ function App() {
 
   return (
     <>
-    <Header name={name} />
-    <Game>
+      <Header name={name} />
       <Form name={name} onChangeName={changeName} />
       <main className="page">
-        <Board position={positionGrogu} />
-        <section>
-          <Dice onClickDice={handleClickRollDice} />
-          <div className="game-status">{stateGame}</div>
-        </section>
-        <section className="goods-container">
-          <div className="goods-item">🍪</div>
-          <div className="goods-item">🍪</div>
-          <div className="goods-item">🍪</div>
-        </section>
-        <section className="goods-container">
-          <div className="goods-item">🥚</div>
-          <div className="goods-item">🥚</div>
-          <div className="goods-item">🥚</div>
-        </section>
-        <section className="goods-container">
-          <div className="goods-item">🐸</div>
-          <div className="goods-item">🐸</div>
-          <div className="goods-item">🐸</div>
-        </section>
-        <section>
-          <button className="restart-button">Reiniciar Juego</button>
-        </section>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Board position={positionGrogu} />
+                <section>
+                  <Dice onClickDice={handleClickRollDice} />
+                  <div className="game-status">{stateGame}</div>
+                </section>
+                <section className="goods-container">
+                  <div className="goods-item">🍪</div>
+                  <div className="goods-item">🍪</div>
+                  <div className="goods-item">🍪</div>
+                </section>
+                <section className="goods-container">
+                  <div className="goods-item">🥚</div>
+                  <div className="goods-item">🥚</div>
+                  <div className="goods-item">🥚</div>
+                </section>
+                <section className="goods-container">
+                  <div className="goods-item">🐸</div>
+                  <div className="goods-item">🐸</div>
+                  <div className="goods-item">🐸</div>
+                </section>
+                <section>
+                  <button className="restart-button">Reiniciar Juego</button>
+                </section>
+              </>
+            }
+          />
+          <Route path="/instructions" element={<Instructions />} />
+          <Route path="/options" element={<Options />} />
+        </Routes>
         <Footer />
-    <Routes>
-        <Route path="/" element={Form} />
-        <Route path="/instructions" element={<Instructions />} />
-    </Routes>
-    </main>
+      </main>
     </>
   );
 }

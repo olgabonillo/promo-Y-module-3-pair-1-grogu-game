@@ -5,7 +5,7 @@ function Footer() {
     <>
       <footer className="footer">
         <nav>
-          <ul>
+          <ul className="footer__list">
             <li className="footer__menu-item">
               <Link className="footer__menu-link" to="/">
                 A jugar
