@@ -59,6 +59,8 @@ html {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
+    position: absolute;
+    margin-bottom: 20px;
 }
 
 .dice:hover {

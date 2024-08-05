@@ -5,6 +5,10 @@ import Board from "./Board";
 import Grogu from "./Grogu";
 import Dice from "./Dice";
 import Form from "./Form";
+import Footer from "./Footer";
+import { Route, Routes, Link, Router } from "react-router-dom";
+import Instructions from "./Instructions";
+import Options from "./Options";
 
 // 1. Grogu en la casilla número 1
 // hay 3 galletas, tres huevos y 3 ranas
@@ -75,7 +79,8 @@ function App() {
 
   return (
     <>
-      <Header name={name} />
+    <Header name={name} />
+    <Game>
       <Form name={name} onChangeName={changeName} />
       <main className="page">
         <Board position={positionGrogu} />
@@ -101,7 +106,12 @@ function App() {
         <section>
           <button className="restart-button">Reiniciar Juego</button>
         </section>
-      </main>
+        <Footer />
+    <Routes>
+        <Route path="/" element={Form} />
+        <Route path="/instructions" element={<Instructions />} />
+    </Routes>
+    </main>
     </>
   );
 }
